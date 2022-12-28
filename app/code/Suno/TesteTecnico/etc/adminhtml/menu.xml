@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Suno_TesteTecnico::listing" sortOrder="1000" title="Suno Signatures" module="Suno_TesteTecnico"
+             parent="Magento_Sales::sales" resource="Suno_TesteTecnico::listing" translate="title"
+             action="signatures/index/index"/>
+    </menu>
+</config>
