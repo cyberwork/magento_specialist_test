@@ -35,7 +35,7 @@ bin/mysql < src/magento.sql
 ### 5) Importando as configurações, adicionando entrada de DNS e Reiniciando os containers
 ```bash
 bin/magento app:config:import
-bin/setup-domain magento.local
+bin/setup-domain magento.test
 bin/restart
 ```
 
