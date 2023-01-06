@@ -3,6 +3,7 @@
 Consiste em criar um sistema de assinaturas utilizando o Magento, onde o Usuário, ao comprar um Produto, seja relacionado à uma Assinatura através de uma Inscrição com data de expiração.
 
 ## Infra
+
 Para o desenvolvimento local foi utilizado o projeto: https://github.com/markshust/docker-magento Para executar o projeto faça o seguinte passo-a-passo:
 
 ### 1) Download the Docker Compose template:
@@ -10,7 +11,6 @@ Para o desenvolvimento local foi utilizado o projeto: https://github.com/markshu
 ```bash
 curl -s https://raw.githubusercontent.com/markshust/docker-magento/master/lib/template | bash
 ```
-
 
 ### 2) Clonando o projeto na página src:
 
@@ -30,20 +30,29 @@ bin/copytocontainer --all ## Initial copy will take a few minutes...
 ```bash
 bin/mysql < src/magento.sql
 ```
+
 **Os acessos ao banco de dados do container mysql estão em env/db.env**
 
-### 5) Importando as configurações, adicionando entrada de DNS e Reiniciando os containers
+### 5) Executando o setup upgrade
+
+```bash
+bin/magento setup:upgrade
+```
+
+### 6) Importando as configurações, adicionando entrada de DNS e Reiniciando os containers
+
 ```bash
 bin/magento app:config:import
 bin/setup-domain magento.test
 bin/restart
 ```
 
-### 6) Acesse magento.local
+### 7) Acesse magento.local
 
 ## Observaçoes
 
 #### Acesso admin
+
 ```bash
 https://magento.test/admin
 username: john.smith
@@ -51,6 +60,7 @@ password: password123
 ```
 
 # Extras
+
 - O período padrão de assinaturas são 30 dias após a assinatura.
 - Criei um Grid usando a UI de grids do Magento para exibir todas as assinaturas do Banco de Dados, ela está em Sales => Suno Signatures
 - É possível habilitar e desabilitar as assinaturas
